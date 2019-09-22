@@ -14,7 +14,7 @@ def sequential_search(a_list, item):
         else:
             pos = pos + 1
     end = datetime.datetime.utcnow()
-
+    print(end-start, 'end-start')
     return (found, (end - start))
 
 
@@ -95,7 +95,7 @@ def generate_lists(num):
     return random_lists
 
 
-def get_average(date_list):
+def get_average_time(date_list):
     filter_for_date = [date for (result, date) in date_list]
     sum_dates = sum(filter_for_date, datetime.timedelta())
     average = sum_dates / len(date_list)
@@ -106,13 +106,14 @@ def get_average(date_list):
 def benchmark(fn, num, search_for, sorted_list=None):
     n_list = generate_lists(num) if sorted_list is None else sorted_list
     benchmark_list = [fn(int_list, search_for) for int_list in n_list]
-    average = get_average(benchmark_list)
+    average = get_average_time(benchmark_list)
 
     results_dict = {
         'function_name': fn.__name__,
         'list_size': num,
         'query': search_for,
-        'average': average
+        'average': average,
+        'sorted': True if sorted_list else False 
     }
 
     return results_dict
