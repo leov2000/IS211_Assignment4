@@ -1,9 +1,10 @@
 import time
+import datetime
 from random import randint, shuffle
 
 
 def sequential_search(a_list, item):
-    start = time.time()
+    start = datetime.datetime.utcnow()
     pos = 0
     found = False
 
@@ -12,13 +13,13 @@ def sequential_search(a_list, item):
             found = True
         else:
             pos = pos + 1
-    end = time.time()
+    end = datetime.datetime.utcnow()
 
-    return (found, end - start)
+    return (found, (end - start))
 
 
 def ordered_sequential_search(a_list, item):
-    start = time.time()
+    start = datetime.datetime.utcnow()
     pos = 0
     found = False
     stop = False
@@ -32,13 +33,13 @@ def ordered_sequential_search(a_list, item):
             else:
                 pos = pos + 1
 
-    end = time.time()
+    end = datetime.datetime.utcnow()
 
-    return (found, end - start)
+    return (found, (end - start))
 
 
 def binary_search_iterative(a_list, item):
-    start = time.time()
+    start = datetime.datetime.utcnow()
 
     first = 0
     last = len(a_list) - 1
@@ -54,13 +55,13 @@ def binary_search_iterative(a_list, item):
             else:
                 first = midpoint + 1
 
-    end = time.time()
+    end = datetime.datetime.utcnow()
 
-    return (found, end - start)
+    return (found, (end - start))
 
 
 def binary_search_recursive(a_list, item):
-    start = time.time()
+    start = datetime.datetime.utcnow()
 
     def trampoline_rec_func(a_list, item):
         if len(a_list) == 0:
@@ -76,9 +77,9 @@ def binary_search_recursive(a_list, item):
                 return trampoline_rec_func(a_list[midpoint + 1:], item)
 
     result = trampoline_rec_func(a_list, item)
-    end = time.time()
+    end = datetime.datetime.utcnow()
 
-    return (result, end - start)
+    return (result, (end - start))
 
 
 def generate_random_list(range_size=500):
@@ -94,13 +95,12 @@ def generate_lists(num):
     return random_lists
 
 
-def get_average(benchmark_list):
-    result = 0
-    for benchmark_tuple in benchmark_list:
-        (_, time) = benchmark_tuple
-        result = result + time
+def get_average(date_list):
+    filter_for_date = [date for (result, date) in date_list]
+    sum_dates = sum(filter_for_date, datetime.timedelta())
+    average = sum_dates / len(date_list)
 
-    return result / 100
+    return average
 
 
 def benchmark(fn, num, search_for, sorted_list=None):
