@@ -14,7 +14,7 @@ def sequential_search(a_list, item):
         else:
             pos = pos + 1
     end = datetime.datetime.utcnow()
-    print(end-start, 'end-start')
+
     return (found, (end - start))
 
 
@@ -113,7 +113,7 @@ def benchmark(fn, num, search_for, sorted_list=None):
         'list_size': num,
         'query': search_for,
         'average': average,
-        'sorted': True if sorted_list else False 
+        'is_sorted': True if sorted_list else False
     }
 
     return results_dict
@@ -134,6 +134,36 @@ def test_benchmark_lists(size_list, fn_list, search_for=None):
     return result_list
 
 
+def format_fn_name(fn_str):
+    remove_underscore = fn_str.split('_')
+    capitalize_str = [fn_str.capitalize() for fn_str in remove_underscore]
+    format_result = " ".join(capitalize_str)
+
+    return format_result
+
+
+def get_keys(avg_dict):
+    average = avg_dict.get('average')
+    list_size = avg_dict.get('list_size')
+    query = avg_dict.get('query')
+    function_name = avg_dict.get('function_name')
+    is_sorted = avg_dict.get('is_sorted')
+
+    return (avg_dict, list_size, query, format_fn_name(function_name),
+            is_sorted)
+
+
+def print_results(benchmark_results_list):
+    [positive, negative] = benchmark_results_list
+    for avg in positive:
+        get_keys(avg)
+
+    # first = positive[0]
+    # average = first.get('average')
+    # print(average.total_seconds(), 'AVERAGE')
+    # print("took %10.7f seconds"%average.total_seconds())
+
+
 def activate():
     sizes = [500, 1000, 10000]
 
@@ -145,8 +175,7 @@ def activate():
     positive_results = test_benchmark_lists(sizes, function_list)
     worse_case_results = test_benchmark_lists(sizes, function_list, -1)
 
-    print(positive_results)
-    print(worse_case_results)
+    print_results([positive_results, worse_case_results])
 
 
 def main():
