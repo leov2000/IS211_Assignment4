@@ -1,19 +1,18 @@
 import time
 
+
 def sequential_search(a_list, item):
     start = time.time()
     pos = 0
     found = False
-
     while pos < len(a_list) and not found:
         if a_list[pos] == item:
             found = True
         else:
-            pos = pos+1
-
+            pos = pos + 1
     end = time.time()
+    return (found, end - start)
 
-    return (found, end- start)
 
 def ordered_sequential_search(a_list, item):
     start = time.time()
@@ -28,10 +27,11 @@ def ordered_sequential_search(a_list, item):
             if a_list[pos] > item:
                 stop = True
             else:
-                pos = pos+1
+                pos = pos + 1
     end = time.time()
-                
+
     return (found, end - start)
+
 
 def binary_search_iterative(a_list, item):
     start = time.time()
@@ -49,26 +49,27 @@ def binary_search_iterative(a_list, item):
                 last = midpoint - 1
             else:
                 first = midpoint + 1
-    end = time.time()            
+    end = time.time()
 
-    return (found, end - start) 
+    return (found, end - start)
 
-def binary_search_recursive(a_list, item, add_time = 0):
-    start = time.time() + add_time
-    if len(a_list) == 0:
-        end = time.time()
-        return (False, start - end)
-    else:
-        midpoint = len(a_list) // 2
-    if a_list[midpoint] == item:
-        end = time.time()
-        return (True, start - end)
-    else:
-        if item < a_list[midpoint]:
-            end = time.time()
-            return binary_search_recursive(a_list[:midpoint], item, start)
+
+def binary_search_recursive(a_list, item):
+    start = time.time()
+
+    def trampoline_rec_func(a_list, item):
+        if len(a_list) == 0:
+            return False
         else:
-            end = time.time()
-            return binary_search_recursive(a_list[midpoint + 1:], item, start) 
+            midpoint = len(a_list) // 2
+        if a_list[midpoint] == item:
+            return True
+        else:
+            if item < a_list[midpoint]:
+                return trampoline_rec_func(a_list[:midpoint], item)
+            else:
+                return trampoline_rec_func(a_list[midpoint + 1:], item)
 
-
+    result = trampoline_rec_func(a_list, item)
+    end = time.time()
+    return (result, end - start)
