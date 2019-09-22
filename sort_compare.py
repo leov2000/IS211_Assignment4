@@ -1,4 +1,7 @@
+import time
+
 def insertion_sort(a_list):
+    start = time.time()
     for index in range(1, len(a_list)):
 
         current_value = a_list[index]
@@ -10,7 +13,13 @@ def insertion_sort(a_list):
 
     a_list[position] = current_value
 
+    end = time.time()
+
+    return (end - start)
+
+
 def shell_sort(a_list):
+    start = time.time()
     sublist_count = len(a_list)//2
     while sublist_count > 0:
 
@@ -22,7 +31,13 @@ def shell_sort(a_list):
 
         sublist_count = sublist_count // 2
 
+    end = time.time()    
+
+    return (end - start)
+
+
 def gap_insertion_sort(a_list,start,gap):
+    start = time.time()
     for i in range(start + gap, len(a_list), gap):
 
         current_value = a_list[i]
@@ -34,7 +49,15 @@ def gap_insertion_sort(a_list,start,gap):
 
         a_list[position] = current_value
 
+    end = time.time()
 
-def python_sort(list);
+    return (end - start)
+
+def python_sort(list):
+    start = time.time()
     list.sort()
+    end = time.time()
+
+    return end - start 
+
 
