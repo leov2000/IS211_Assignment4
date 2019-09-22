@@ -94,17 +94,31 @@ def generate_lists(num):
     return random_lists
 
 
-def benchmark(fn, num, search_for, sorted_list = None):
-    start = time.time()
+def get_average(benchmark_list):
+    result = 0
+    for benchmark_tuple in benchmark_list:
+        (_, time) = benchmark_tuple
+        result = result + time
 
+    return result / 100
+
+
+def benchmark(fn, num, search_for, sorted_list=None):
     n_list = generate_lists(num) if sorted_list is None else sorted_list
-    bench_list = [fn(int_list, search_for) for int_list in n_list]
+    benchmark_list = [fn(int_list, search_for) for int_list in n_list]
+    average = get_average(benchmark_list)
 
-    end = time.time()
+    results_dict = {
+        'function_name': fn.__name__,
+        'list_size': num,
+        'query': search_for,
+        'average': average
+    }
 
-    print(f"{fn.__name__} takes {end - start} long for lists of {num} length using {search_for}")
+    return results_dict
 
-def trigger_sizes_and_cb(size_list, fn_list, search_for = None):
+
+def test_benchmark_lists(size_list, fn_list, search_for=None):
     result_list = []
 
     for i, fn in enumerate(fn_list):
@@ -126,10 +140,10 @@ def activate():
         sequential_search, ordered_sequential_search, binary_search_iterative,
         binary_search_recursive
     ]
-    
-    positive_results = trigger_sizes_and_cb(sizes, function_list)
-    worse_case_results = trigger_sizes_and_cb(sizes, function_list, -1)
-    
+
+    positive_results = test_benchmark_lists(sizes, function_list)
+    worse_case_results = test_benchmark_lists(sizes, function_list, -1)
+
     print(positive_results)
     print(worse_case_results)
 
