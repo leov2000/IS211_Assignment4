@@ -64,7 +64,7 @@ def binary_search_iterative(a_list, item):
 def binary_search_recursive(a_list, item):
     start_time = datetime.datetime.utcnow()
 
-    # placed the recursive call within a trampoline recursive
+    # structured the invokation within a recursive trampoline
     # fn to get a better handle on the start - end time.
     def trampoline_rec_func(a_list, item):
         if len(a_list) == 0:
