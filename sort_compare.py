@@ -143,9 +143,9 @@ def main():
         python_sort
     ]
 
-    positive_results = test_benchmark_lists(sizes, function_list)
+    sort_results = test_benchmark_lists(sizes, function_list)
 
-    print_results(positive_results)
+    print_results(sort_results)
 
 
 if __name__ == '__main__':
