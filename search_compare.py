@@ -167,6 +167,17 @@ def call_fn_with_list(fn, num, search_for, sorted_list=None):
 
 
 def run_benchmark(size_list, fn_list, search_for=None):
+    """
+    The primary benchmark function
+
+        Parameters:
+            size_list(list[int])
+            fn_list(list[function])
+
+        Returns:
+            A list of average benchmarks.
+    """
+    
     result_list = []
 
     for i, fn in enumerate(fn_list):
@@ -243,12 +254,31 @@ def print_results(results_list):
         print('-' * 70)
 
 def write_to_json(results_dict):
+    """
+    A utility function used to store the benchmark results into JSON format file.
+
+        Parameters:
+            results_dict(dict)
+        
+        Writes:
+            A JSON file with the results. 
+            
+    """
+
     with open('benchmark-search-meta.json', 'w') as json_file:
         json.dump(results_dict, json_file, indent=4, default=str)
 
 
 
 def main():
+    """
+    The main function that bootstraps the app.
+
+        Parameters: None
+
+        Returns: None
+    """
+
     sizes = [500, 1000, 10000]
 
     function_list = [

@@ -65,6 +65,15 @@ def python_sort(a_list):
 
 
 def format_fn_name(fn_str):
+    """
+    A utility function used to sentence case function names with underscores
+        Parameters:
+            fn_str(str)
+
+        Returns:
+            A sentence cased string     
+    """
+
     remove_underscore = fn_str.split('_')
     capitalize_str = [fn_str.capitalize() for fn_str in remove_underscore]
     format_result = ' '.join(capitalize_str)
@@ -73,6 +82,17 @@ def format_fn_name(fn_str):
 
 
 def get_random_list(range_size=500):
+    """
+    A utility function that creates a list given a range size
+    and randomizes it using the shuffle method
+
+        Parameters:
+            range_size(int)
+        
+        Returns:
+            A list of shuffled ints 
+    """
+
     num_list = list(range(1, range_size + 1))
     shuffle(num_list)
 
@@ -80,12 +100,33 @@ def get_random_list(range_size=500):
 
 
 def get_lists_of_100(num):
+    """
+    A utility function that creates a list of 100 and invokes the the generate_random_list fn 
+
+        Parameters:
+            num(int)
+
+        Returns:
+            A list of ints 
+    """
+
     random_lists = [get_random_list(num) for n in range(0, 100)]
 
     return random_lists
 
 
 def get_average_time(date_list):
+    """
+    A utility function which gives the average time by summing the 
+    time deltas and dividing it by the length of the list 
+
+        Parameters:
+            date_lists(list[<time-delta>])
+
+        Returns:
+            An average. 
+    """
+
     sum_dates = sum(date_list, datetime.timedelta())
     average = sum_dates / len(date_list)
 
@@ -93,6 +134,16 @@ def get_average_time(date_list):
 
 
 def call_fn_with_list(fn, num):
+    """
+    A utility function used to trigger the benchmark-ing mechanism 
+        Parameters:
+            fn(function)
+            num(int)
+
+        Returns:
+            A dictionary with the results.  
+    """
+
     n_list = get_lists_of_100(num)
     benchmark_list = [fn(int_list) for int_list in n_list]
     average = get_average_time(benchmark_list)
@@ -106,6 +157,17 @@ def call_fn_with_list(fn, num):
     return results_dict
 
 def run_benchmark(size_list, fn_list):
+    """
+    The primary benchmark function
+
+        Parameters:
+            size_list(list[int])
+            fn_list(list[function])
+
+        Returns:
+            A list of average benchmarks.
+    """
+    
     result_list = []
 
     for fn in fn_list:
@@ -116,6 +178,16 @@ def run_benchmark(size_list, fn_list):
 
 
 def get_keys(avg_dict):
+    """
+    A utility function used to get keys and values and format the function name
+
+        Parameters:
+            avg_dict(dict)
+
+        Returns:
+            A tuple with the values expected.
+    """
+
     average = avg_dict.get('average')
     list_size = avg_dict.get('list_size')
     function_name = avg_dict.get('function_name')
@@ -124,6 +196,15 @@ def get_keys(avg_dict):
 
 
 def print_results(results_list):
+    """
+    A utility function used to print out the results of the benchmark. 
+
+        Parameters:
+            results_list(list)
+        
+        Prints:
+            A formatted message with the details of the benchmark.
+    """
 
     for avg in results_list:
         (avg, list_size, fn_name) = get_keys(avg)
@@ -134,11 +215,29 @@ def print_results(results_list):
         print('-' * 70)
 
 def write_to_json(results_dict):
+    """
+    A utility function used to store the benchmark results into JSON format file.
+
+        Parameters:
+            results_dict(dict)
+        
+        Writes:
+            A JSON file with the results.     
+    """
+
     with open('benchmark-sort-meta.json', 'w') as json_file:
         json.dump(results_dict, json_file, indent=4, default=str)
 
 
 def main():
+    """
+    The main function that bootstraps the app.
+
+        Parameters: None
+
+        Returns: None
+    """
+
     sizes = [500, 1000, 10000]
 
     function_list = [
