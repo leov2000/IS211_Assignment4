@@ -1,0 +1,49 @@
+{
+    "sort_results": [
+        {
+            "function_name": "insertion_sort",
+            "list_size": 500,
+            "average": "0:00:00.000020"
+        },
+        {
+            "function_name": "insertion_sort",
+            "list_size": 1000,
+            "average": "0:00:00.000040"
+        },
+        {
+            "function_name": "insertion_sort",
+            "list_size": 10000,
+            "average": "0:00:00.000687"
+        },
+        {
+            "function_name": "shell_sort",
+            "list_size": 500,
+            "average": "0:00:00.001488"
+        },
+        {
+            "function_name": "shell_sort",
+            "list_size": 1000,
+            "average": "0:00:00.003633"
+        },
+        {
+            "function_name": "shell_sort",
+            "list_size": 10000,
+            "average": "0:00:00.060099"
+        },
+        {
+            "function_name": "python_sort",
+            "list_size": 500,
+            "average": "0:00:00.000035"
+        },
+        {
+            "function_name": "python_sort",
+            "list_size": 1000,
+            "average": "0:00:00.000077"
+        },
+        {
+            "function_name": "python_sort",
+            "list_size": 10000,
+            "average": "0:00:00.001072"
+        }
+    ]
+}

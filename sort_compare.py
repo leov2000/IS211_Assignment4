@@ -1,6 +1,7 @@
 import time
 import datetime
 from random import randint, shuffle
+import json
 
 
 def insertion_sort(a_list):
@@ -132,6 +133,10 @@ def print_results(results_list):
             % (fn_name, avg.total_seconds(), list_size))
         print('-' * 70)
 
+def write_to_json(results_dict):
+    with open('benchmark-sort-meta.json', 'w') as json_file:
+        json.dump(results_dict, json_file, indent=4, default=str)
+
 
 def main():
     sizes = [500, 1000, 10000]
@@ -145,6 +150,10 @@ def main():
     sort_results = run_benchmark(sizes, function_list)
 
     print_results(sort_results)
+
+    write_to_json({
+        'sort_results': sort_results
+    })
 
 
 if __name__ == '__main__':

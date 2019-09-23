@@ -1,0 +1,174 @@
+{
+    "positive_results": [
+        {
+            "function_name": "sequential_search",
+            "list_size": 500,
+            "query": 312,
+            "average": "0:00:00.000033",
+            "is_sorted": false
+        },
+        {
+            "function_name": "sequential_search",
+            "list_size": 1000,
+            "query": 312,
+            "average": "0:00:00.000065",
+            "is_sorted": false
+        },
+        {
+            "function_name": "sequential_search",
+            "list_size": 10000,
+            "query": 312,
+            "average": "0:00:00.000951",
+            "is_sorted": false
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 500,
+            "query": 312,
+            "average": "0:00:00.000064",
+            "is_sorted": true
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 1000,
+            "query": 312,
+            "average": "0:00:00.000063",
+            "is_sorted": true
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 10000,
+            "query": 312,
+            "average": "0:00:00.000061",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_iterative",
+            "list_size": 500,
+            "query": 312,
+            "average": "0:00:00.000001",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_iterative",
+            "list_size": 1000,
+            "query": 312,
+            "average": "0:00:00.000001",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_iterative",
+            "list_size": 10000,
+            "query": 312,
+            "average": "0:00:00.000002",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_recursive",
+            "list_size": 500,
+            "query": 312,
+            "average": "0:00:00.000005",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_recursive",
+            "list_size": 1000,
+            "query": 312,
+            "average": "0:00:00.000009",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_recursive",
+            "list_size": 10000,
+            "query": 312,
+            "average": "0:00:00.000044",
+            "is_sorted": true
+        }
+    ],
+    "worse_case_results": [
+        {
+            "function_name": "sequential_search",
+            "list_size": 500,
+            "query": -1,
+            "average": "0:00:00.000089",
+            "is_sorted": false
+        },
+        {
+            "function_name": "sequential_search",
+            "list_size": 1000,
+            "query": -1,
+            "average": "0:00:00.000160",
+            "is_sorted": false
+        },
+        {
+            "function_name": "sequential_search",
+            "list_size": 10000,
+            "query": -1,
+            "average": "0:00:00.001583",
+            "is_sorted": false
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 500,
+            "query": -1,
+            "average": "0:00:00.000001",
+            "is_sorted": true
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 1000,
+            "query": -1,
+            "average": "0:00:00.000001",
+            "is_sorted": true
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 10000,
+            "query": -1,
+            "average": "0:00:00.000001",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_iterative",
+            "list_size": 500,
+            "query": -1,
+            "average": "0:00:00.000001",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_iterative",
+            "list_size": 1000,
+            "query": -1,
+            "average": "0:00:00.000002",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_iterative",
+            "list_size": 10000,
+            "query": -1,
+            "average": "0:00:00.000004",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_recursive",
+            "list_size": 500,
+            "query": -1,
+            "average": "0:00:00.000005",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_recursive",
+            "list_size": 1000,
+            "query": -1,
+            "average": "0:00:00.000007",
+            "is_sorted": true
+        },
+        {
+            "function_name": "binary_search_recursive",
+            "list_size": 10000,
+            "query": -1,
+            "average": "0:00:00.000035",
+            "is_sorted": true
+        }
+    ]
+}

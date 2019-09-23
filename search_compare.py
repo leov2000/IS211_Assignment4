@@ -1,6 +1,7 @@
 import time
 import datetime
 from random import randint, shuffle
+import json 
 
 
 def sequential_search(a_list, item):
@@ -167,6 +168,11 @@ def print_results(results_list):
                query))
         print('-' * 70)
 
+def write_to_json(results_dict):
+    with open('benchmark-search-meta.json', 'w') as json_file:
+        json.dump(results_dict, json_file, indent=4, default=str)
+
+
 
 def main():
     sizes = [500, 1000, 10000]
@@ -181,6 +187,11 @@ def main():
 
     print_results(positive_results)
     print_results(worse_case_results)
+
+    write_to_json({
+        'positive_results': positive_results,
+        'worse_case_results': worse_case_results
+    })
 
 
 if __name__ == '__main__':
