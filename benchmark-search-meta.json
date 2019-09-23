@@ -3,85 +3,85 @@
         {
             "function_name": "sequential_search",
             "list_size": 500,
-            "query": 377,
-            "average": "0:00:00.000029",
+            "query": 490,
+            "average": "0:00:00.000026",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 1000,
-            "query": 377,
-            "average": "0:00:00.000061",
+            "query": 490,
+            "average": "0:00:00.000067",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 10000,
-            "query": 377,
-            "average": "0:00:00.000802",
+            "query": 490,
+            "average": "0:00:00.000767",
             "is_sorted": false
         },
         {
             "function_name": "ordered_sequential_search",
             "list_size": 500,
-            "query": 377,
-            "average": "0:00:00.000060",
+            "query": 490,
+            "average": "0:00:00.000078",
             "is_sorted": true
         },
         {
             "function_name": "ordered_sequential_search",
             "list_size": 1000,
-            "query": 377,
-            "average": "0:00:00.000058",
+            "query": 490,
+            "average": "0:00:00.000076",
             "is_sorted": true
         },
         {
             "function_name": "ordered_sequential_search",
             "list_size": 10000,
-            "query": 377,
-            "average": "0:00:00.000069",
+            "query": 490,
+            "average": "0:00:00.000088",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_iterative",
             "list_size": 500,
-            "query": 377,
+            "query": 490,
             "average": "0:00:00.000002",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_iterative",
             "list_size": 1000,
-            "query": 377,
-            "average": "0:00:00.000003",
+            "query": 490,
+            "average": "0:00:00.000002",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_iterative",
             "list_size": 10000,
-            "query": 377,
+            "query": 490,
             "average": "0:00:00.000005",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 500,
-            "query": 377,
-            "average": "0:00:00.000005",
+            "query": 490,
+            "average": "0:00:00.000004",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 1000,
-            "query": 377,
-            "average": "0:00:00.000011",
+            "query": 490,
+            "average": "0:00:00.000009",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 10000,
-            "query": 377,
-            "average": "0:00:00.000041",
+            "query": 490,
+            "average": "0:00:00.000033",
             "is_sorted": true
         }
     ],
@@ -90,35 +90,35 @@
             "function_name": "sequential_search",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000065",
+            "average": "0:00:00.000057",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 1000,
             "query": -1,
-            "average": "0:00:00.000125",
+            "average": "0:00:00.000116",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 10000,
             "query": -1,
-            "average": "0:00:00.001616",
+            "average": "0:00:00.001432",
             "is_sorted": false
         },
         {
             "function_name": "ordered_sequential_search",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000001",
+            "average": "0:00:00",
             "is_sorted": true
         },
         {
             "function_name": "ordered_sequential_search",
             "list_size": 1000,
             "query": -1,
-            "average": "0:00:00.000001",
+            "average": "0:00:00",
             "is_sorted": true
         },
         {
@@ -132,7 +132,7 @@
             "function_name": "binary_search_iterative",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000002",
+            "average": "0:00:00.000001",
             "is_sorted": true
         },
         {
@@ -153,7 +153,7 @@
             "function_name": "binary_search_recursive",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000004",
+            "average": "0:00:00.000005",
             "is_sorted": true
         },
         {
