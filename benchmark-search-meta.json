@@ -1,87 +1,87 @@
 {
-    "positive_results": [
+    "regular_case_results": [
         {
             "function_name": "sequential_search",
             "list_size": 500,
-            "query": 312,
-            "average": "0:00:00.000033",
+            "query": 377,
+            "average": "0:00:00.000029",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 1000,
-            "query": 312,
-            "average": "0:00:00.000065",
-            "is_sorted": false
-        },
-        {
-            "function_name": "sequential_search",
-            "list_size": 10000,
-            "query": 312,
-            "average": "0:00:00.000951",
-            "is_sorted": false
-        },
-        {
-            "function_name": "ordered_sequential_search",
-            "list_size": 500,
-            "query": 312,
-            "average": "0:00:00.000064",
-            "is_sorted": true
-        },
-        {
-            "function_name": "ordered_sequential_search",
-            "list_size": 1000,
-            "query": 312,
-            "average": "0:00:00.000063",
-            "is_sorted": true
-        },
-        {
-            "function_name": "ordered_sequential_search",
-            "list_size": 10000,
-            "query": 312,
+            "query": 377,
             "average": "0:00:00.000061",
+            "is_sorted": false
+        },
+        {
+            "function_name": "sequential_search",
+            "list_size": 10000,
+            "query": 377,
+            "average": "0:00:00.000802",
+            "is_sorted": false
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 500,
+            "query": 377,
+            "average": "0:00:00.000060",
+            "is_sorted": true
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 1000,
+            "query": 377,
+            "average": "0:00:00.000058",
+            "is_sorted": true
+        },
+        {
+            "function_name": "ordered_sequential_search",
+            "list_size": 10000,
+            "query": 377,
+            "average": "0:00:00.000069",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_iterative",
             "list_size": 500,
-            "query": 312,
-            "average": "0:00:00.000001",
+            "query": 377,
+            "average": "0:00:00.000002",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_iterative",
             "list_size": 1000,
-            "query": 312,
-            "average": "0:00:00.000001",
+            "query": 377,
+            "average": "0:00:00.000003",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_iterative",
             "list_size": 10000,
-            "query": 312,
-            "average": "0:00:00.000002",
+            "query": 377,
+            "average": "0:00:00.000005",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 500,
-            "query": 312,
+            "query": 377,
             "average": "0:00:00.000005",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 1000,
-            "query": 312,
-            "average": "0:00:00.000009",
+            "query": 377,
+            "average": "0:00:00.000011",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 10000,
-            "query": 312,
-            "average": "0:00:00.000044",
+            "query": 377,
+            "average": "0:00:00.000041",
             "is_sorted": true
         }
     ],
@@ -90,21 +90,21 @@
             "function_name": "sequential_search",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000089",
+            "average": "0:00:00.000065",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 1000,
             "query": -1,
-            "average": "0:00:00.000160",
+            "average": "0:00:00.000125",
             "is_sorted": false
         },
         {
             "function_name": "sequential_search",
             "list_size": 10000,
             "query": -1,
-            "average": "0:00:00.001583",
+            "average": "0:00:00.001616",
             "is_sorted": false
         },
         {
@@ -132,7 +132,7 @@
             "function_name": "binary_search_iterative",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000001",
+            "average": "0:00:00.000002",
             "is_sorted": true
         },
         {
@@ -153,21 +153,21 @@
             "function_name": "binary_search_recursive",
             "list_size": 500,
             "query": -1,
-            "average": "0:00:00.000005",
+            "average": "0:00:00.000004",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 1000,
             "query": -1,
-            "average": "0:00:00.000007",
+            "average": "0:00:00.000006",
             "is_sorted": true
         },
         {
             "function_name": "binary_search_recursive",
             "list_size": 10000,
             "query": -1,
-            "average": "0:00:00.000035",
+            "average": "0:00:00.000036",
             "is_sorted": true
         }
     ]
