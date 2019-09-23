@@ -82,15 +82,15 @@ def binary_search_recursive(a_list, item):
     return (result, (end_time - start_time))
 
 
-def generate_random_list(range_size=500):
+def get_random_list(range_size=500):
     num_list = list(range(1, range_size + 1))
     shuffle(num_list)
 
     return num_list
 
 
-def generate_lists(num):
-    random_lists = [generate_random_list(num) for n in range(0, 100)]
+def get_lists_of_100(num):
+    random_lists = [get_random_list(num) for n in range(0, 100)]
 
     return random_lists
 
@@ -103,8 +103,8 @@ def get_average_time(date_list):
     return average
 
 
-def benchmark(fn, num, search_for, sorted_list=None):
-    n_list = generate_lists(num) if sorted_list is None else sorted_list
+def call_fn_with_list(fn, num, search_for, sorted_list=None):
+    n_list = get_lists_of_100(num) if sorted_list is None else sorted_list
     benchmark_list = [fn(int_list, search_for) for int_list in n_list]
     average = get_average_time(benchmark_list)
 
@@ -119,18 +119,18 @@ def benchmark(fn, num, search_for, sorted_list=None):
     return results_dict
 
 
-def test_benchmark_lists(size_list, fn_list, search_for=None):
+def run_benchmark(size_list, fn_list, search_for=None):
     result_list = []
 
     for i, fn in enumerate(fn_list):
         for size in size_list:
             search_for = randint(0, size) if search_for is None else search_for
             if i > 0:
-                n_lists = generate_lists(size)
+                n_lists = get_lists_of_100(size)
                 n_lists = list(map(sorted, n_lists))
-                result_list.append(benchmark(fn, size, search_for, n_lists))
+                result_list.append(call_fn_with_list(fn, size, search_for, n_lists))
             else:
-                result_list.append(benchmark(fn, size, search_for))
+                result_list.append(call_fn_with_list(fn, size, search_for))
     return result_list
 
 
@@ -176,8 +176,8 @@ def main():
         binary_search_recursive
     ]
 
-    positive_results = test_benchmark_lists(sizes, function_list)
-    worse_case_results = test_benchmark_lists(sizes, function_list, -1)
+    positive_results = run_benchmark(sizes, function_list)
+    worse_case_results = run_benchmark(sizes, function_list, -1)
 
     print_results(positive_results)
     print_results(worse_case_results)

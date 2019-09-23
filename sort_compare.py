@@ -55,9 +55,9 @@ def gap_insertion_sort(a_list, start, gap):
 
     return (end_time - start_time)
 
-def python_sort(list):
+def python_sort(a_list):
     start_time = datetime.datetime.utcnow()
-    list.sort()
+    a_list.sort()
     end_time = datetime.datetime.utcnow()
 
     return end_time - start_time
@@ -71,29 +71,28 @@ def format_fn_name(fn_str):
     return format_result
 
 
-def generate_random_list(range_size=500):
+def get_random_list(range_size=500):
     num_list = list(range(1, range_size + 1))
     shuffle(num_list)
 
     return num_list
 
 
-def generate_lists(num):
-    random_lists = [generate_random_list(num) for n in range(0, 100)]
+def get_lists_of_100(num):
+    random_lists = [get_random_list(num) for n in range(0, 100)]
 
     return random_lists
 
 
 def get_average_time(date_list):
-    filter_for_date = [date for date in date_list]
-    sum_dates = sum(filter_for_date, datetime.timedelta())
+    sum_dates = sum(date_list, datetime.timedelta())
     average = sum_dates / len(date_list)
 
     return average
 
 
-def benchmark(fn, num):
-    n_list = generate_lists(num)
+def call_fn_with_list(fn, num):
+    n_list = get_lists_of_100(num)
     benchmark_list = [fn(int_list) for int_list in n_list]
     average = get_average_time(benchmark_list)
 
@@ -105,12 +104,12 @@ def benchmark(fn, num):
 
     return results_dict
 
-def test_benchmark_lists(size_list, fn_list, search_for=None):
+def run_benchmark(size_list, fn_list):
     result_list = []
 
     for fn in fn_list:
         for size in size_list:
-            result_list.append(benchmark(fn, size))
+            result_list.append(call_fn_with_list(fn, size))
 
     return result_list
 
@@ -143,7 +142,7 @@ def main():
         python_sort
     ]
 
-    sort_results = test_benchmark_lists(sizes, function_list)
+    sort_results = run_benchmark(sizes, function_list)
 
     print_results(sort_results)
 
