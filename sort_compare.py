@@ -56,6 +56,7 @@ def gap_insertion_sort(a_list, start, gap):
 
     return (end_time - start_time)
 
+
 def python_sort(a_list):
     start_time = datetime.datetime.utcnow()
     a_list.sort()
@@ -88,7 +89,7 @@ def get_random_list(range_size=500):
 
         Parameters:
             range_size(int)
-        
+
         Returns:
             A list of shuffled ints 
     """
@@ -156,6 +157,7 @@ def call_fn_with_list(fn, num):
 
     return results_dict
 
+
 def run_benchmark(size_list, fn_list):
     """
     The primary benchmark function
@@ -167,7 +169,7 @@ def run_benchmark(size_list, fn_list):
         Returns:
             A list of average benchmarks.
     """
-    
+
     result_list = []
 
     for fn in fn_list:
@@ -201,7 +203,7 @@ def print_results(results_list):
 
         Parameters:
             results_list(list)
-        
+
         Prints:
             A formatted message with the details of the benchmark.
     """
@@ -214,13 +216,14 @@ def print_results(results_list):
             % (fn_name, avg.total_seconds(), list_size))
         print('-' * 70)
 
+
 def write_to_json(results_dict):
     """
     A utility function used to store the benchmark results into JSON format file.
 
         Parameters:
             results_dict(dict)
-        
+
         Writes:
             A JSON file with the results.     
     """

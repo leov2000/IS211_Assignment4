@@ -1,7 +1,7 @@
 import time
 import datetime
 from random import randint, shuffle
-import json 
+import json
 
 
 def sequential_search(a_list, item):
@@ -64,8 +64,8 @@ def binary_search_iterative(a_list, item):
 def binary_search_recursive(a_list, item):
     start_time = datetime.datetime.utcnow()
 
-    #placed the recursive call within a trampoline recursive
-    #fn to get a better handle on the start - end time.
+    # placed the recursive call within a trampoline recursive
+    # fn to get a better handle on the start - end time.
     def trampoline_rec_func(a_list, item):
         if len(a_list) == 0:
             return False
@@ -92,7 +92,7 @@ def get_random_list(range_size=500):
 
         Parameters:
             range_size(int)
-        
+
         Returns:
             A list of shuffled ints 
     """
@@ -177,7 +177,7 @@ def run_benchmark(size_list, fn_list, search_for=None):
         Returns:
             A list of average benchmarks.
     """
-    
+
     result_list = []
 
     for i, fn in enumerate(fn_list):
@@ -186,7 +186,8 @@ def run_benchmark(size_list, fn_list, search_for=None):
             if i > 0:
                 n_lists = get_lists_of_100(size)
                 n_lists = list(map(sorted, n_lists))
-                result_list.append(call_fn_with_list(fn, size, search_for, n_lists))
+                result_list.append(call_fn_with_list(
+                    fn, size, search_for, n_lists))
             else:
                 result_list.append(call_fn_with_list(fn, size, search_for))
     return result_list
@@ -236,7 +237,7 @@ def print_results(results_list):
 
         Parameters:
             results_list(list)
-        
+
         Prints:
             A formatted message with the details of the benchmark.
     """
@@ -253,21 +254,20 @@ def print_results(results_list):
                query))
         print('-' * 70)
 
+
 def write_to_json(results_dict):
     """
     A utility function used to store the benchmark results into JSON format file.
 
         Parameters:
             results_dict(dict)
-        
+
         Writes:
-            A JSON file with the results. 
-            
+            A JSON file with the results.   
     """
 
     with open('benchmark-search-meta.json', 'w') as json_file:
         json.dump(results_dict, json_file, indent=4, default=str)
-
 
 
 def main():
