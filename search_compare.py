@@ -137,7 +137,7 @@ def test_benchmark_lists(size_list, fn_list, search_for=None):
 def format_fn_name(fn_str):
     remove_underscore = fn_str.split('_')
     capitalize_str = [fn_str.capitalize() for fn_str in remove_underscore]
-    format_result = " ".join(capitalize_str)
+    format_result = ' '.join(capitalize_str)
 
     return format_result
 
@@ -149,19 +149,23 @@ def get_keys(avg_dict):
     function_name = avg_dict.get('function_name')
     is_sorted = avg_dict.get('is_sorted')
 
-    return (avg_dict, list_size, query, format_fn_name(function_name),
+    return (average, list_size, query, format_fn_name(function_name),
             is_sorted)
 
 
-def print_results(benchmark_results_list):
-    [positive, negative] = benchmark_results_list
-    for avg in positive:
-        get_keys(avg)
+def print_results(results_list):
 
-    # first = positive[0]
-    # average = first.get('average')
-    # print(average.total_seconds(), 'AVERAGE')
-    # print("took %10.7f seconds"%average.total_seconds())
+    for avg in results_list:
+        (avg, list_size, query, fn_name, is_sorted) = get_keys(avg)
+
+        sort_str = 'pre-sorted' if is_sorted else 'not-sorted'
+        query_type = 'positive' if query > 0 else 'negative'
+
+        print(
+            '<%s> took %10.7f seconds to run,\non average on a list size of %s that was %s using\nthe following %s query: %s'
+            % (fn_name, avg.total_seconds(), list_size, sort_str, query_type,
+               query))
+        print('-' * 70)
 
 
 def activate():
@@ -175,12 +179,13 @@ def activate():
     positive_results = test_benchmark_lists(sizes, function_list)
     worse_case_results = test_benchmark_lists(sizes, function_list, -1)
 
-    print_results([positive_results, worse_case_results])
+    print_results(positive_results)
+    print_results(worse_case_results)
 
 
 def main():
     activate()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
