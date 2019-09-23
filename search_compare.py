@@ -4,7 +4,7 @@ from random import randint, shuffle
 
 
 def sequential_search(a_list, item):
-    start = datetime.datetime.utcnow()
+    start_time = datetime.datetime.utcnow()
     pos = 0
     found = False
 
@@ -13,13 +13,13 @@ def sequential_search(a_list, item):
             found = True
         else:
             pos = pos + 1
-    end = datetime.datetime.utcnow()
+    end_time = datetime.datetime.utcnow()
 
-    return (found, (end - start))
+    return (found, (end_time - start_time))
 
 
 def ordered_sequential_search(a_list, item):
-    start = datetime.datetime.utcnow()
+    start_time = datetime.datetime.utcnow()
     pos = 0
     found = False
     stop = False
@@ -33,13 +33,13 @@ def ordered_sequential_search(a_list, item):
             else:
                 pos = pos + 1
 
-    end = datetime.datetime.utcnow()
+    end_time = datetime.datetime.utcnow()
 
-    return (found, (end - start))
+    return (found, (end_time - start_time))
 
 
 def binary_search_iterative(a_list, item):
-    start = datetime.datetime.utcnow()
+    start_time = datetime.datetime.utcnow()
 
     first = 0
     last = len(a_list) - 1
@@ -55,13 +55,13 @@ def binary_search_iterative(a_list, item):
             else:
                 first = midpoint + 1
 
-    end = datetime.datetime.utcnow()
+    end_time = datetime.datetime.utcnow()
 
-    return (found, (end - start))
+    return (found, (end_time - start_time))
 
 
 def binary_search_recursive(a_list, item):
-    start = datetime.datetime.utcnow()
+    start_time = datetime.datetime.utcnow()
 
     def trampoline_rec_func(a_list, item):
         if len(a_list) == 0:
@@ -77,9 +77,9 @@ def binary_search_recursive(a_list, item):
                 return trampoline_rec_func(a_list[midpoint + 1:], item)
 
     result = trampoline_rec_func(a_list, item)
-    end = datetime.datetime.utcnow()
+    end_time = datetime.datetime.utcnow()
 
-    return (result, (end - start))
+    return (result, (end_time - start_time))
 
 
 def generate_random_list(range_size=500):
