@@ -182,14 +182,14 @@ def main():
         binary_search_recursive
     ]
 
-    positive_results = run_benchmark(sizes, function_list)
+    regular_case_results = run_benchmark(sizes, function_list)
     worse_case_results = run_benchmark(sizes, function_list, -1)
 
-    print_results(positive_results)
+    print_results(regular_case_results)
     print_results(worse_case_results)
 
     write_to_json({
-        'positive_results': positive_results,
+        'regular_case_results': regular_case_results,
         'worse_case_results': worse_case_results
     })
 
