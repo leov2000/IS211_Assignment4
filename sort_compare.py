@@ -134,7 +134,7 @@ def print_results(results_list):
         print('-' * 70)
 
 
-def activate():
+def main():
     sizes = [500, 1000, 10000]
 
     function_list = [
@@ -146,10 +146,6 @@ def activate():
     positive_results = test_benchmark_lists(sizes, function_list)
 
     print_results(positive_results)
-
-
-def main():
-    activate()
 
 
 if __name__ == '__main__':

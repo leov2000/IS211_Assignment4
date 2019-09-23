@@ -168,7 +168,7 @@ def print_results(results_list):
         print('-' * 70)
 
 
-def activate():
+def main():
     sizes = [500, 1000, 10000]
 
     function_list = [
@@ -181,10 +181,6 @@ def activate():
 
     print_results(positive_results)
     print_results(worse_case_results)
-
-
-def main():
-    activate()
 
 
 if __name__ == '__main__':
