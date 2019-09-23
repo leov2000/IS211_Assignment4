@@ -64,6 +64,8 @@ def binary_search_iterative(a_list, item):
 def binary_search_recursive(a_list, item):
     start_time = datetime.datetime.utcnow()
 
+    #placed the recursive call within a trampoline recursive
+    #fn to get a better handle on the start - end time.
     def trampoline_rec_func(a_list, item):
         if len(a_list) == 0:
             return False
@@ -84,6 +86,17 @@ def binary_search_recursive(a_list, item):
 
 
 def get_random_list(range_size=500):
+    """
+    A utility function that creates a list given a range size
+    and randomizes it using the shuffle method
+
+        Parameters:
+            range_size(int)
+        
+        Returns:
+            A list of shuffled ints 
+    """
+
     num_list = list(range(1, range_size + 1))
     shuffle(num_list)
 
@@ -91,12 +104,33 @@ def get_random_list(range_size=500):
 
 
 def get_lists_of_100(num):
+    """
+    A utility function that creates a list of 100 and invokes the the generate_random_list fn 
+
+        Parameters:
+            num(int)
+
+        Returns:
+            A list of ints 
+    """
+
     random_lists = [get_random_list(num) for n in range(0, 100)]
 
     return random_lists
 
 
 def get_average_time(date_list):
+    """
+    A utility function which gives the average time by summing the 
+    time deltas and dividing it by the length of the list 
+
+        Parameters:
+            date_lists(list[<time-delta>])
+
+        Returns:
+            An average. 
+    """
+
     filter_for_date = [date for (result, date) in date_list]
     sum_dates = sum(filter_for_date, datetime.timedelta())
     average = sum_dates / len(date_list)
@@ -105,6 +139,18 @@ def get_average_time(date_list):
 
 
 def call_fn_with_list(fn, num, search_for, sorted_list=None):
+    """
+    A utility function used to trigger the benchmark-ing mechanism 
+        Parameters:
+            fn(function)
+            num(int)
+            search_for(int)
+            sorted_list(list[int])
+
+        Returns:
+            A dictionary with the results.  
+    """
+
     n_list = get_lists_of_100(num) if sorted_list is None else sorted_list
     benchmark_list = [fn(int_list, search_for) for int_list in n_list]
     average = get_average_time(benchmark_list)
@@ -136,6 +182,15 @@ def run_benchmark(size_list, fn_list, search_for=None):
 
 
 def format_fn_name(fn_str):
+    """
+    A utility function used to sentence case function names with underscores
+        Parameters:
+            fn_str(str)
+
+        Returns:
+            A sentence cased string     
+    """
+
     remove_underscore = fn_str.split('_')
     capitalize_str = [fn_str.capitalize() for fn_str in remove_underscore]
     format_result = ' '.join(capitalize_str)
@@ -144,6 +199,16 @@ def format_fn_name(fn_str):
 
 
 def get_keys(avg_dict):
+    """
+    A utility function used to get keys and values and format the function name
+
+        Parameters:
+            avg_dict(dict)
+
+        Returns:
+            A tuple with the values expected.
+    """
+
     average = avg_dict.get('average')
     list_size = avg_dict.get('list_size')
     query = avg_dict.get('query')
@@ -155,6 +220,15 @@ def get_keys(avg_dict):
 
 
 def print_results(results_list):
+    """
+    A utility function used to print out the results of the benchmark. 
+
+        Parameters:
+            results_list(list)
+        
+        Prints:
+            A formatted message with the details of the benchmark.
+    """
 
     for avg in results_list:
         (avg, list_size, query, fn_name, is_sorted) = get_keys(avg)
